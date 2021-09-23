@@ -1,0 +1,34 @@
+package ac1_poo_ex2;
+
+public class Mesa {
+	private int numero;
+	private int quantidadeDePessoas;
+	private int totalDaConta = 0;
+		
+	public int getNumero() {
+		return numero;
+	}
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+	public int getQuantidadeDePessoas() {
+		return quantidadeDePessoas;
+	}
+	public void setQuantidadeDePessoas(int quantidadeDePessoas) {
+		this.quantidadeDePessoas = quantidadeDePessoas;
+	}
+	public int getTotalDaConta() {
+		return totalDaConta;
+	}
+	public void setTotalDaConta(int totalDaConta) {
+		this.totalDaConta = totalDaConta;
+	}
+
+	public void pedidoDeProdutos(int codigo, int quantidade) {
+		switch(codigo) {
+			case 1:
+				this.setTotalDaConta(quantidade * 2);
+				
+		}
+	}
+}

@@ -1,0 +1,10 @@
+package organizationTabajaras;
+
+public class main {
+
+	public static void main(String[] args) {
+		Employee employee = new Employee();
+
+	}
+
+}

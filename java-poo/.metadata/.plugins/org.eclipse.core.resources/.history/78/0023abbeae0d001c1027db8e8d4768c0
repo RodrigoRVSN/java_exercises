@@ -1,0 +1,17 @@
+package organizationTabajaras;
+import java.util.Scanner;
+
+public class main {
+
+	public static void main(String[] args) {
+		Employee employee = new Employee();
+		Scanner input = new Scanner(System.in);
+		
+		employee.setName(input.next());
+		employee.setDepartament(input.next());
+		employee.setGrossSalary(input.nextDouble());
+		employee.setEnterDate(input.nextInt());
+		employee.setName(input.next());
+	}
+
+}

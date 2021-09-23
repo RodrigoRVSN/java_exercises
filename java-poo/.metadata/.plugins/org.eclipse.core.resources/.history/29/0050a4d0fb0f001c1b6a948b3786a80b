@@ -1,0 +1,49 @@
+package ac1_poo_ex2;
+
+import java.text.DecimalFormat;
+
+public class Mesa {
+	private int numero;
+	private int quantidadeDePessoas;
+	private int totalDaConta = 0;
+		
+	public int getNumero() {
+		return numero;
+	}
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+	public int getQuantidadeDePessoas() {
+		return quantidadeDePessoas;
+	}
+	public void setQuantidadeDePessoas(int quantidadeDePessoas) {
+		this.quantidadeDePessoas = quantidadeDePessoas;
+	}
+	public int getTotalDaConta() {
+		return totalDaConta;
+	}
+	public void setTotalDaConta(int totalDaConta) {
+		this.totalDaConta = totalDaConta;
+	}
+
+	public String print() {
+		return "\n----------------\nNúmero da mesa: " + this.getNumero() + ": \nQuantidade de pessoas: " + this.getQuantidadeDePessoas() + "\nValor prêmio: " + this.getTotalDaConta();
+	}
+	
+	
+	public void pedidoDeProdutos(int codigo, int quantidade) {
+		switch(codigo) {
+			case 1:
+				this.setTotalDaConta(this.getTotalDaConta() + quantidade * 2);
+				break;
+			case 2:
+				this.setTotalDaConta(this.getTotalDaConta() + quantidade * 5);
+				break;
+			case 3:
+				this.setTotalDaConta(this.getTotalDaConta() + quantidade * 4);
+				break;
+		}
+	}
+	
+	
+}

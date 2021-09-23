@@ -1,0 +1,62 @@
+package ac1_poo_ex2;
+
+public class Mesa {
+	private int numero;
+	private int quantidadeDePessoas;
+	private int totalDaConta = 0;
+		
+	public int getNumero() {
+		return numero;
+	}
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+	public int getQuantidadeDePessoas() {
+		return quantidadeDePessoas;
+	}
+	public void setQuantidadeDePessoas(int quantidadeDePessoas) {
+		this.quantidadeDePessoas = quantidadeDePessoas;
+	}
+	public int getTotalDaConta() {
+		return totalDaConta;
+	}
+	public void setTotalDaConta(int totalDaConta) {
+		this.totalDaConta = totalDaConta;
+	}
+
+	public Mesa (int numero, int quantidadeDePessaos) {
+		this.numero = numero;
+		this.quantidadeDePessoas = quantidadeDePessaos;
+		this.totalDaConta = 0;
+	}
+	
+	public String print() {
+		return "\nNúmero da mesa: " + this.getNumero() + "\nQuantidade de pessoas: " + this.getQuantidadeDePessoas() + "\nTotal da conta: R$ " + this.getTotalDaConta() + "\n---------------------";
+	}
+	
+	public String printTabela(String tipoTabela[][]) {
+		for(int i = 0; i<produtos.length; i++) {
+			System.out.print("\n");
+			for(int secondIterator = 0; secondIterator < produtos.length; secondIterator++) {
+				System.out.print(" | " + produtos[i][secondIterator]);
+			}
+		}
+		}
+	
+	
+	public void pedidoDeProdutos(int codigo, int quantidade) {
+		switch(codigo) {
+			case 1:
+				this.setTotalDaConta(this.getTotalDaConta() + quantidade * 2);
+				break;
+			case 2:
+				this.setTotalDaConta(this.getTotalDaConta() + quantidade * 5);
+				break;
+			case 3:
+				this.setTotalDaConta(this.getTotalDaConta() + quantidade * 4);
+				break;
+		}
+	}
+	
+	
+}

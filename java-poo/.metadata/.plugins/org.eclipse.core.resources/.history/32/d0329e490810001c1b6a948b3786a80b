@@ -1,0 +1,87 @@
+package ac1_poo_ex2;
+import java.util.Scanner;
+
+public class AppRestaurante {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		boolean continuar = true;
+		String produtos[][] = {
+				{"1", "Refrigerante", "R$ 2,00"},
+				{"2", "Cachorro Quente", "R$ 5,00"},
+				{"3", "Batata Frita", "R$ 4,00"},
+		};
+		
+		String pagamentos[][] = {
+				{"1", "Dinheiro", "10% de desconto"},
+				{"2", "Cheque", "Sem desconto"},
+				{"3", "Cartão", "5% de desconto"},
+		};
+
+		/* -------------- MESA 1 -------------- */
+		
+		Mesa mesa1 = new Mesa(1, 5);		
+
+		// Pedidos
+		mesa1.printTabela(produtos);
+		
+		while(continuar == true) {
+			System.out.println("\n\nDigite o código do produto e sua quantidade (0 para interromper): ");
+			int codigo = input.nextInt();
+			int quantidade = input.nextInt();
+			
+			if(quantidade == 0 || codigo == 0) {
+				continuar = false;
+				break;
+			}
+			
+			mesa1.pedidoDeProdutos(codigo, quantidade);
+		}
+		
+		// Pagamentos
+
+		mesa1.printTabela(pagamentos);
+		System.out.println("\n\nDigite o código do tipo de pagamento: ");
+		mesa1.fechaContaComPagametno(input.nextInt());
+		double valorPorPessoa1 = mesa1.calculaValorPorPessoa(); 
+
+		/* -------------- MESA 2 -------------- */
+
+		Mesa mesa2 = new Mesa(2, 3);		
+
+		// Pedidos
+		mesa2.printTabela(produtos);
+		System.out.println("\n\n\tMesa 2 ");
+		
+		continuar = true;
+		while(continuar == true) {
+			System.out.println("\n\nDigite o código do produto e sua quantidade (0 para interromper): ");
+			int codigo = input.nextInt();
+			int quantidade = input.nextInt();
+			
+			if(quantidade == 0 || codigo == 0) {
+				continuar = false;
+				break;
+			}
+			
+			mesa2.pedidoDeProdutos(codigo, quantidade);
+		}
+		
+		// Pagamentos
+
+		mesa2.printTabela(pagamentos);
+		System.out.println("\n\nDigite o código do tipo de pagamento: ");
+		mesa2.fechaContaComPagametno(input.nextInt());
+		double valorPorPessoa2 = mesa2.calculaValorPorPessoa(); 
+		
+		/* -------------- GERAL -------------- */
+		
+		System.out.println("\n\n" + mesa1.print());
+		System.out.println("A mesa " + mesa1.getNumero() + " deve pagar por pessoa R$ " + valorPorPessoa1);
+		System.out.println(mesa2.print());
+		System.out.println("A mesa " + mesa2.getNumero() + " deve pagar por pessoa R$ " + valorPorPessoa2);
+		
+		input.close();
+	}
+
+}

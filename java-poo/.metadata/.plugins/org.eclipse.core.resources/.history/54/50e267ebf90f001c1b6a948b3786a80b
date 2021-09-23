@@ -1,0 +1,7 @@
+package ac1_poo_ex2;
+
+public class Mesa {
+	private int numero;
+	private int quantidadeDePessoas;
+	private int totalDaConta;
+}

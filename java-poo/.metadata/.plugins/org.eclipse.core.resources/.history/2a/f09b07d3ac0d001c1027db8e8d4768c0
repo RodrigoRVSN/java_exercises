@@ -1,0 +1,12 @@
+package organizationTabajaras;
+
+public class Employee {
+	private String name;
+	private String departamento;
+	private double wage;
+	private int enterDate;
+	private boolean isWorking;
+	private int dependences;
+	
+	
+}

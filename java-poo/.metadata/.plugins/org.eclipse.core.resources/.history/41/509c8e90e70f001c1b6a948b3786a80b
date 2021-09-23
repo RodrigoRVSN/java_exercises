@@ -1,0 +1,12 @@
+package ac1_poo_ex1;
+
+public class AppApolice {
+
+	public static void main(String[] args) {
+
+		Apolice apolice1 = new Apolice("Brasil", 32, 6.5);
+		
+		apolice1.print();
+	}
+
+}

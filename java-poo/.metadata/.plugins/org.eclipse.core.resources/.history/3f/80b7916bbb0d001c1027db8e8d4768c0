@@ -1,0 +1,33 @@
+package organizationTabajaras;
+import java.util.Scanner;
+
+public class main {
+
+	public static void main(String[] args) {
+		Employee employee1 = new Employee();
+		//Employee employee2 = new Employee();
+		//Employee employee3 = new Employee();
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Digite o nome do funcionário: ");
+		employee1.setName(input.next());
+		System.out.println("Digite o departamento: ");
+		employee1.setDepartament(input.next());
+		System.out.println("Digite o salário bruto: ");
+		employee1.setGrossSalary(input.nextDouble());
+		System.out.println("Digite o status: ");
+		employee1.setWorking(input.nextBoolean());
+		System.out.println("Digite o ano de entrada: ");
+		employee1.setEnterDate(input.nextInt());
+		System.out.println("Digite quantos dependentes o funcionário possui: ");
+		employee1.setDependences(input.nextInt());
+		
+		double netSalary = employee1.calculateNetSalary(employee1.getDependences(), employee1.getGrossSalary());
+		int timeWorking = employee1.calculateTimeWorking(employee1.getEnterDate());
+		
+		System.out.println("\n\nInformações do(a) " + employee1.getName() + ":\nSalário líquido do funcionário após desconto do inposto e adição dos dependentes: \n" + netSalary + "Anos trabalhando: " + timeWorking);
+		
+		input.close();
+	}
+
+}

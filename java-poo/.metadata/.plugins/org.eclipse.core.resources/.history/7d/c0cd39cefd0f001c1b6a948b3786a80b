@@ -1,0 +1,23 @@
+package ac1_poo_ex2;
+
+public class AppRestaurante {
+
+	public static void main(String[] args) {
+		Mesa mesa1 = new Mesa(1, 5);
+
+		System.out.println(mesa1.print());
+		
+		String produtos[][] = {
+				{"1", "dinheiro", "teste"},
+				{"1", "dinheiro", "teste"},
+				{"1", "dinheiro", "teste"},
+				};
+
+		for(int i = 0; i<produtos.length; i++) {
+			System.out.println(produtos[0][i]);
+		}
+		System.out.println("Código do produto");
+		
+	}
+
+}

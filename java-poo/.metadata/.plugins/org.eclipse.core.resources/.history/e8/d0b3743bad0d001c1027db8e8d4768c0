@@ -1,0 +1,50 @@
+package organizationTabajaras;
+
+public class Employee {
+	private String name;
+	private String departamento;
+	private double wage;
+	private int enterDate;
+	private boolean isWorking;
+	private int dependences;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDepartamento() {
+		return departamento;
+	}
+	public void setDepartamento(String departamento) {
+		this.departamento = departamento;
+	}
+	public double getWage() {
+		return wage;
+	}
+	public void setWage(double wage) {
+		this.wage = wage;
+	}
+	public int getEnterDate() {
+		return enterDate;
+	}
+	public void setEnterDate(int enterDate) {
+		this.enterDate = enterDate;
+	}
+	public boolean isWorking() {
+		return isWorking;
+	}
+	public void setWorking(boolean isWorking) {
+		this.isWorking = isWorking;
+	}
+	public int getDependences() {
+		return dependences;
+	}
+	public void setDependences(int dependences) {
+		this.dependences = dependences;
+	}
+	
+	
+	
+}

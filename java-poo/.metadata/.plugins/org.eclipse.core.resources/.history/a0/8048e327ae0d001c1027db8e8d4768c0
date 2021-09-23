@@ -1,0 +1,54 @@
+package organizationTabajaras;
+
+public class Employee {
+	private String name;
+	private String departament;
+	private double grossSalary;
+	private int enterDate;
+	private boolean isWorking;
+	private int dependences;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDepartament() {
+		return departament;
+	}
+	public void setDepartament(String departament) {
+		this.departament = departament;
+	}
+	public double getGrossSalary() {
+		return grossSalary;
+	}
+	public void setGrossSalary(double grossSalary) {
+		this.grossSalary = grossSalary;
+	}
+	public int getEnterDate() {
+		return enterDate;
+	}
+	public void setEnterDate(int enterDate) {
+		this.enterDate = enterDate;
+	}
+	public boolean isWorking() {
+		return isWorking;
+	}
+	public void setWorking(boolean isWorking) {
+		this.isWorking = isWorking;
+	}
+	public int getDependences() {
+		return dependences;
+	}
+	public void setDependences(int dependences) {
+		this.dependences = dependences;
+	}
+	
+	public double calculateNetSalary(int dependences, double grossSalary) {
+		double netSalary;
+		netSalary = (grossSalary < 1000 ? grossSalary * 0.93 : grossSalary * 0.95) + (20 * dependences);
+		return netSalary;
+	}
+	
+}

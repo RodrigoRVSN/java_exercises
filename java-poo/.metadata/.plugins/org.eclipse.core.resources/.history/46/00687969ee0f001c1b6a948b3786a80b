@@ -1,0 +1,37 @@
+package ac1_poo_ex1;
+
+import java.util.Scanner;
+
+public class AppApolice {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		Apolice apolice1 = new Apolice("Brasil", 32, 100);
+		
+		System.out.println(apolice1.print() + " 1");
+		
+		apolice1.calculaValorPremio();
+		System.out.println("\nCom valor do prêmio atualizado com acréscimo:\n" + apolice1.print());
+		
+		System.out.println("\nDigite o nome da cidade: ");
+		String cidade1 = input.nextLine();
+		apolice1.calculaDescontoPremio(cidade);
+		System.out.println("\nCom valor do prêmio atualizado com desconto:\n" + apolice1.print());
+		
+		
+		Apolice apolice2 = new Apolice("Brasil", 32, 100);
+		
+		System.out.println(apolice1.print() + " 1");
+		
+		apolice1.calculaValorPremio();
+		System.out.println("\nCom valor do prêmio atualizado com acréscimo:\n" + apolice1.print());
+		
+		System.out.println("\nDigite o nome da cidade: ");
+		String cidade2 = input.nextLine();
+		apolice1.calculaDescontoPremio(cidade2);
+		System.out.println("\nCom valor do prêmio atualizado com desconto:\n" + apolice1.print());
+		
+		input.close();
+	}
+
+}

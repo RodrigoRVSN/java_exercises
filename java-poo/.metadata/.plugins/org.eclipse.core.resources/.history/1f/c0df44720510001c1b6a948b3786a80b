@@ -1,0 +1,54 @@
+package ac1_poo_ex2;
+import java.util.Scanner;
+
+public class AppRestaurante {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		boolean continuar = true;
+		String produtos[][] = {
+				{"1", "Refrigerante", "R$ 2,00"},
+				{"2", "Cachorro Quente", "R$ 5,00"},
+				{"3", "Batata Frita", "R$ 4,00"},
+		};
+		
+		String pagamentos[][] = {
+				{"1", "Dinheiro", "10% de desconto"},
+				{"2", "Cheque", "Sem desconto"},
+				{"3", "Cartão", "5% de desconto"},
+		};
+		
+		Mesa mesa1 = new Mesa(1, 5);		
+
+		// Pedidos
+		mesa1.printTabela(produtos);
+		
+		while(continuar == true) {
+			System.out.println("\n\nDigite o código do produto e sua quantidade (0 para interromper): ");
+			int codigo = input.nextInt();
+			int quantidade = input.nextInt();
+			
+			if(quantidade == 0 || codigo == 0) {
+				continuar = false;
+				break;
+			}
+			
+			mesa1.pedidoDeProdutos(codigo, quantidade);
+		}
+		
+		// Pagamentos
+
+		mesa1.printTabela(pagamentos);
+		System.out.println("\n\nDigite o código do tipo de pagamento: ");
+		mesa1.fechaContaComPagametno(input.nextInt());
+		
+		int codigo = input.nextInt();
+		
+		
+		
+		System.out.println(mesa1.print());
+		
+		input.close();
+	}
+
+}

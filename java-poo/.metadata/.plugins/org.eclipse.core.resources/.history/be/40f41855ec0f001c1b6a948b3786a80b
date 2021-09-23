@@ -1,0 +1,17 @@
+package ac1_poo_ex1;
+
+public class AppApolice {
+
+	public static void main(String[] args) {
+
+		Apolice apolice1 = new Apolice("Brasil", 32, 6.5);
+		
+		System.out.println(apolice1.print());
+		
+		apolice1.calculaValorPremio();
+		System.out.println("\nCom valor do prêmio atualizado:\n" + apolice1.print());
+		
+		
+	}
+
+}

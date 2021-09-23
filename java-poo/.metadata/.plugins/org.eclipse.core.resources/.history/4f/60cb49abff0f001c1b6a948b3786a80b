@@ -1,0 +1,39 @@
+package ac1_poo_ex2;
+import java.util.Scanner;
+
+public class AppRestaurante {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		boolean continuar = true;
+		String produtos[][] = {
+				{"1", "dinheiro", "2"},
+				{"2", "Cachorro Quente", "5"},
+				{"3", "Batata Frita", "4"},
+		};
+		
+		Mesa mesa1 = new Mesa(1, 5);		
+
+		for(int i = 0; i<produtos.length; i++) {
+			System.out.print("\n");
+			for(int secondIterator = 0; secondIterator < produtos.length; secondIterator++) {
+				System.out.print(" | " + produtos[i][secondIterator]);
+			}
+		}
+		
+		while(continuar == true) {
+			System.out.println("\nDigite o código do produto e sua quantidade, respectivamente: ");
+			int codigo = input.nextInt();
+			int quantidade = input.nextInt();
+			mesa1.pedidoDeProdutos(codigo, quantidade);
+			if(quantidade == 0 || codigo == 0) {
+				continuar = false;
+			}
+		}
+		
+		System.out.println(mesa1.print());
+		
+		input.close();
+	}
+
+}

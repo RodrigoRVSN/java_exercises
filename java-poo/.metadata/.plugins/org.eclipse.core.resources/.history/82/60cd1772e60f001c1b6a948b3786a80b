@@ -1,0 +1,11 @@
+package ac1_poo_ex1;
+
+public class Apolice {
+	private String nomeSegurado;
+	private int idade;
+	private double valorPremio;
+	
+	public Apolice(){
+		
+	}
+}

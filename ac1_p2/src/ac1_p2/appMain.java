@@ -16,7 +16,8 @@ public class appMain {
 
         // Inicializando todas as mesas
         Mesa mesa[] = new Mesa[quantidadeDeMesas + 1];
-        for (int j = 1; j < quantidadeDeMesas + 1; j++) {
+        System.out.println(mesa.length);
+        for (int j = 1; j < mesa.length; j++) {
             mesa[j] = new Mesa();
         }
         int i = 0, a, id, qtdPessoas;
@@ -50,7 +51,7 @@ public class appMain {
         }
 
         // Imprimindo todas as mesas que estao sendo usadas.
-        for (a = 1; a < quantidadeDeMesas + 1; a++) {
+        for (a = 1; a < mesa.length; a++) {
             if (mesa[a].isSendoUsada()) {
                 JOptionPane.showMessageDialog(null, mesa[a].printMesa(), "Resumo", JOptionPane.INFORMATION_MESSAGE);
             }
@@ -88,7 +89,7 @@ public class appMain {
 
         // Calculando e imprimindo o valor final da conta e por pessoa
 
-        for (a = 1; a < quantidadeDeMesas + 1; a++) {
+        for (a = 1; a < mesa.length; a++) {
             if (mesa[a].isSendoUsada()) {
                 mesa[a].pagamento(a);
             }
@@ -96,7 +97,7 @@ public class appMain {
 
 
         // Encontrando o maior valor por pessoa e imprimindo a mesa que possui com este valor
-        for (a = 1; a < quantidadeDeMesas + 1; a++) {
+        for (a = 1; a < mesa.length; a++) {
             if (mesa[a].isSendoUsada()) {
                 JOptionPane.showMessageDialog(null, mesa[a].printMesa(), "RESUMO FINAL", JOptionPane.INFORMATION_MESSAGE);
             }

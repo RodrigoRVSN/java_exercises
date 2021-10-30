@@ -84,7 +84,7 @@ public class Person {
             if ((objPerson.getSex() == 'M' || objPerson.getSex() == 'm')) {
                 countMan++;
             }
-        }
+
 
         return countMan / zPerson.size() * 100;
     }

@@ -10,10 +10,10 @@ public class Main {
         Scanner inputReport = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
 
-        ArrayList<Customer> listCustomers = new ArrayList();
         ArrayList<Provider> listProviders = new ArrayList();
         ArrayList<Item> listItens = new ArrayList();
 
+        ManageCustomer manage = new ManageCustomer();
 
         int option = 0, reportOption = 0;
 
@@ -33,26 +33,30 @@ public class Main {
             switch (option) {
                 case 1:
                     System.out.println("---------- CADASTRO DE CLIENTES --------");
-                    Customer cust = new Customer();
-                    System.out.println("Digite nome:");
-                    cust.setName(input.nextLine());
-                    System.out.println("Digite e-mail:");
-                    cust.setEmail(input.nextLine());
-                    System.out.println("Digite 'PF' para pessoa física e 'PJ' para jurídica:");
-                    cust.setTypePerson(input.nextLine());
-                    if(cust.getTypePerson().equalsIgnoreCase("pf")){
-                        System.out.println("Digite o CPF:");
-                        cust.setCpf(input.nextLine());
-                        System.out.println("Digite a quantidade máxima de parcelamento:");
-                        cust.setInstallmentAmount(input.nextInt());
+                    System.out.println("Digite 'PF' para pessoa física e 'PJ' para jurídica: ");
+                    String typePerson = input.nextLine();
+                    System.out.println("Digite nome: ");
+                    String name = input.nextLine();
+                    System.out.println("Digite e-mail: ");
+                    String email = input.nextLine();
+
+                    if(typePerson.equalsIgnoreCase("pf")){
+                        System.out.println("Digite o CPF: ");
+                        String cpf = input.nextLine();
+                        System.out.println("Digite a quantidade máxima de parcelamento: ");
+                        double amount = input.nextDouble();
+                        PhysicalPerson physical = new PhysicalPerson(name, email, typePerson, cpf, amount);
+                        manage.registerPhysicalPerson(physical);
+
                     } else {
                         System.out.println("Digite o CNPJ:");
-                        cust.setCnpj(input.nextLine());
-                        System.out.println("Digite o prazo máximo de faturamento:");
-                        cust.setBillingTerm(input.nextInt());
+                        String cnpj = input.nextLine();
+                        System.out.println("Digite o prazo máximo de faturamento: ");
+                        double deadline = input.nextDouble();
+                        JuridicPerson juridic = new JuridicPerson(name, email, typePerson, cnpj, deadline);
+                        manage.registerJuridicPerson(juridic);
                     }
                     input.nextLine();
-                    listCustomers.add(cust);
                     break;
                 case 2:
                     System.out.println("---------- CADASTRO DE FORNECEDORES --------");
@@ -95,23 +99,20 @@ public class Main {
                         System.out.println("<10> Voltar");
                         System.out.println("Digite uma opcao: ");
                         reportOption = inputReport.nextInt();
-                        System.out.println("------------------------");
 
                         switch (reportOption){
                             case 1:
-                                System.out.println("---------- CLIENTES --------");
-                                for(Customer objCustomer : listCustomers) {
-                                    objCustomer.print();
-                                }
+                                System.out.println("---------- LISTA DE CLIENTES ----------");
+                                System.out.println(manage.printAll());
                                 break;
                             case 2:
-                                System.out.println("---------- FORNECEDORES --------");
+                                System.out.println("---------- LISTA DE FORNECEDORES --------");
                                 for(Provider objProvider : listProviders) {
                                     objProvider.print();
                                 }
                                 break;
                             case 3:
-                                System.out.println("---------- PRODUTOS --------");
+                                System.out.println("---------- LISTA DE PRODUTOS --------");
                                 for(Item objItem : listItens) {
                                     objItem.print();
                                 }

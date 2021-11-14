@@ -33,9 +33,24 @@ public class JuridicPerson extends Customer {
         this.billingTerm = billingTerm;
     }
 
+    public ArrayList<Order> getListOrders() {
+        return listOrders;
+    }
 
+    public void setListOrders(Order listOrders) {
+        // Adiciona o objeto do pedido ao array
+        this.listOrders.add(listOrders);
+    }
+
+    // Imprime a pessoa
     public String print(){
         return super.print() + "\nCNPJ: " + getCnpj() + "\nPrazo máximo de faturamento: " + getBillingTerm();
     }
 
+    // Imprime os pedidos
+    public void printOrders(){
+        for(int i=0; i<this.listOrders.size(); i++) {
+            System.out.println(listOrders.get(i).printInOrders());
+        }
+    }
 }

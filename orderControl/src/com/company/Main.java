@@ -9,13 +9,17 @@ public class Main {
         Scanner inputOption = new Scanner(System.in);
         Scanner inputReport = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
+        Scanner inputOrder = new Scanner(System.in);
+        Scanner inputTest = new Scanner(System.in);
 
         ArrayList<Provider> listProviders = new ArrayList();
         ArrayList<Item> listItens = new ArrayList();
+        ArrayList<PhysicalPerson> listCpf = new ArrayList();
+        ArrayList<PhysicalPerson> listPhysicalPerson = new ArrayList();
 
         ManageCustomer manage = new ManageCustomer();
 
-        int option = 0, reportOption = 0;
+        int option = 0, reportOption = 0, orderOption = 0;
 
         do {
             System.out.println("---------- MENU --------");
@@ -40,7 +44,7 @@ public class Main {
                     System.out.println("Digite e-mail: ");
                     String email = input.nextLine();
 
-                    if(typePerson.equalsIgnoreCase("pf")){
+                    if (typePerson.equalsIgnoreCase("pf")) {
                         System.out.println("Digite o CPF: ");
                         String cpf = input.nextLine();
                         System.out.println("Digite a quantidade máxima de parcelamento: ");
@@ -81,6 +85,37 @@ public class Main {
                     listItens.add(it);
                     break;
                 case 4:
+                    Order or = new Order();
+                    System.out.println("---------- CADASTRO DE PEDIDOS --------");
+                    System.out.println(" Digite 1 para lan�ar pedido em CPF ou digite qualquer outro n�mero para CNPJ: ");
+                    orderOption = inputOrder.nextInt();
+
+                    if (orderOption == 1) {
+                        // Se for lancar para cpf
+                        System.out.println("Digite o CPF para o qual ser� lan�ado o pedido: ");
+                        or.setCustomerCPF(inputOrder.next());
+                        // chama a funcao de adicionar um pedido
+                        manage.addOrderToPersonCpf(or.getCustomerCPF(), or);
+                        // O for abaixo pode ser refatorado para ser um do while
+                        for (PhysicalPerson ph : listCpf) {
+                            System.out.println(ph.getCpf());
+                            System.out.println(or.getCustomerCPF());
+                            if (ph.getCpf().equalsIgnoreCase(or.getCustomerCPF())) {
+                                String test = "";
+                                do {
+                                    System.out.println("Para finalizar seu pedido digite F ");
+                                    test = inputTest.nextLine();
+                                } while (test != "f");
+
+                            } else {
+                                System.out.println("CPF inv�lido, tente novamente...");
+
+                            }
+                        }
+                    } else {
+                        System.out.println("Digite o CNPJ para o qual ser� lan�ado o pedido: ");
+                    }
+
                     break;
                 case 5:
                     break;
@@ -100,24 +135,26 @@ public class Main {
                         System.out.println("Digite uma opcao: ");
                         reportOption = inputReport.nextInt();
 
-                        switch (reportOption){
+                        switch (reportOption) {
                             case 1:
                                 System.out.println("---------- LISTA DE CLIENTES ----------");
                                 System.out.println(manage.printAll());
                                 break;
                             case 2:
                                 System.out.println("---------- LISTA DE FORNECEDORES --------");
-                                for(Provider objProvider : listProviders) {
+                                for (Provider objProvider : listProviders) {
                                     objProvider.print();
                                 }
                                 break;
                             case 3:
                                 System.out.println("---------- LISTA DE PRODUTOS --------");
-                                for(Item objItem : listItens) {
+                                for (Item objItem : listItens) {
                                     objItem.print();
                                 }
                                 break;
                             case 4:
+                                System.out.println("---------- LISTA DE PEDIDOS --------");
+                                manage.printOrders();
                                 break;
                             case 5:
                                 break;

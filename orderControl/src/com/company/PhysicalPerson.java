@@ -34,8 +34,28 @@ public class PhysicalPerson extends Customer {
         this.installmentAmount = installmentAmount;
     }
 
+
+    public ArrayList<Order> getListOrders() {
+        return listOrders;
+    }
+
+    // Adiciona o objeto do pedido ao array
+    public void setListOrders(Order listOrders) {
+        this.listOrders.add(listOrders);
+    }
+
+    // Imprime a pessoa
     public String print(){
         return super.print() + "\nCPF: " + getCpf() + "\nQuantidade máxima de parcelamento: " + getInstallmentAmount();
     }
+
+    // Imprime pedidos
+    public void printOrders(){
+        for(int i=0; i<this.listOrders.size(); i++) {
+            System.out.println(listOrders.get(i).printInOrders());
+        }
+    }
+
+
 
 }
